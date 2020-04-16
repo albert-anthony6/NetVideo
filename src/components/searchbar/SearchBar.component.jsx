@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { render } from '@testing-library/react';
+import './SearchBar.styles.scss';
+
+import FontAwesome from 'react-fontawesome';
 
 const SearchBar = ({ onFormSubmit }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -7,6 +9,11 @@ const SearchBar = ({ onFormSubmit }) => {
     const handleChange = (e) => {
         // e or event is used to track the inputs value
         setSearchTerm(e.target.value);
+    }
+
+    const resetSearch = () => {
+        setSearchTerm('');
+        onFormSubmit('');
     }
 
     const handleSubmit = (e) => {
@@ -18,7 +25,16 @@ const SearchBar = ({ onFormSubmit }) => {
 
     return(
         <form onSubmit={handleSubmit}>
-            <input type="text" value={searchTerm} onChange={handleChange} placeholder="search..."/>
+            <div className="form-elements">
+                <div className="icon" onClick={resetSearch}>
+                    <FontAwesome className="fab fa-youtube" style={{color: "red"}} name="youtube" size="2x"/>
+                    <h1>YouTube</h1>
+                </div>
+                <div className="search">
+                    <input type="text" value={searchTerm} onChange={handleChange} placeholder="search"/>
+                    <button type="submit"><FontAwesome className="fa-search" name="search"/></button>
+                </div>
+            </div>
         </form>
     );
 };

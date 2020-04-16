@@ -1,0 +1,19 @@
+.main-video{
+    height: 100vh;
+
+    iframe{
+        width: 97%;
+        height: 80%;
+    }
+
+    .details{
+        margin-top: 1.5rem;
+        line-height: 1.5;
+        width: 97%;
+
+        .title,
+        .channel{font-size: 2rem;}
+
+        .description{font-size: 1.5rem;}
+    }
+}
