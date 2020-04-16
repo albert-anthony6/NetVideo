@@ -8,7 +8,7 @@ const VideoDetail = ({ video }) => {
     return(
         <React.Fragment>
             <div className="main-video">
-                <iframe src={videoSrc} frameBorder="0" height="100%" width="auto" title="video player"></iframe>
+                <iframe src={videoSrc} frameBorder="0" title="video player"></iframe>
                 <div className="details">
                     <p className="title">{video.snippet.title}</p>
                     <p className="channel">{video.snippet.channelTitle}</p>

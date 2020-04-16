@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Home.styles.scss';
 
 import {
     API_URL,
@@ -15,7 +14,7 @@ const Home = () => {
     const [selectedVideo, setSelectedVideo] = useState(null);
 
     useEffect(() => {
-        handleSubmit('shrek');
+        handleSubmit('joker');
     }, []);
 
     const onVideoSelect = (video) => {
@@ -23,7 +22,7 @@ const Home = () => {
     }
 
     const handleSubmit = async (searchTerm) => {
-        await fetch(`${API_URL}search?part=snippet&maxResults=5&q=${searchTerm}&key=${API_KEY}`)
+        await fetch(`${API_URL}search?part=snippet&maxResults=25&q=${searchTerm}&key=${API_KEY}`)
         .then(res => res.json())
         .then(data => {
             setVideos(data.items);
@@ -35,7 +34,7 @@ const Home = () => {
     return(
         <React.Fragment>
             <SearchBar onFormSubmit={handleSubmit}/>
-            <div className="all-videos">
+            <div style={{display: "flex"}}>
                 <VideoDetail video={selectedVideo}/>
                 <div className="other-videos">
                     <VideoList videos={videos} onVideoSelect={onVideoSelect}/>
