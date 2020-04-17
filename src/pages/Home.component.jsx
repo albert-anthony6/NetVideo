@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Home.styles.scss';
 
 import {
     API_URL,
@@ -34,7 +35,7 @@ const Home = () => {
     return(
         <React.Fragment>
             <SearchBar onFormSubmit={handleSubmit}/>
-            <div style={{display: "flex"}}>
+            <div className="all-videos">
                 <VideoDetail video={selectedVideo}/>
                 <div className="other-videos">
                     <VideoList videos={videos} onVideoSelect={onVideoSelect}/>
