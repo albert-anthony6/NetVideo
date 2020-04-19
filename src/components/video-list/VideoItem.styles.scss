@@ -5,7 +5,7 @@
 
     img{
         width: 157px;
-        height: auto;
+        height: 90px;
     }
 
     .side-details{
@@ -19,5 +19,15 @@
         }
 
         .channel-title{color: rgb(68, 67, 67);}
+    }
+
+    @media screen and (max-width: 500px){
+        .side-details{
+            width: 30%;
+
+            p:first-child{font-size: 1.3rem;}
+
+            .channel-title{font-size: 1.3rem;}
+        }
     }
 }
